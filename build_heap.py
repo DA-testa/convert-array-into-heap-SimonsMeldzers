@@ -1,6 +1,5 @@
 # python3
 
-
 def build_heap(data):
     swaps = []
     # TODO: Creat heap and heap sort
@@ -15,11 +14,26 @@ def main():
     # TODO : add input and corresponding checks
     # add another input for I or F 
     # first two tests are from keyboard, third test is from a file
+    fileType = input()
 
+    if "F" in fileType:
+        fileName = input()
 
-    # input from keyboard
-    n = int(input())
-    data = list(map(int, input().split()))
+        if "a"  in fileName:
+            return
+        
+        if "test/" not in fileName:
+            fileName = 'test/' + fileName
+        
+        with open(fileName) as f:
+            n = int(f.readline().strip())
+            data = list(map(int, f.readline().split()))
+
+    elif "I" in fileType:
+        n = int(input())
+        data = list(map(int, input().split()))
+    else:
+        print("Error")
 
     # checks if lenght of data is the same as the said lenght
     assert len(data) == n

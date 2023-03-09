@@ -12,6 +12,10 @@ def sort_heap(data, n, swaps, i):
 
     if sm != i:
         swaps.append((i, sm))
+        temp = data[i]
+        data[i] = data[sm]
+        data[sm] = temp
+
         sort_heap(data, n, swaps, sm)
 
 
@@ -20,7 +24,7 @@ def build_heap(data):
     swaps = []
     n = len(data)
 
-    for i in range(int(n / 2) - 1, -1, -1):
+    for i in range(n // 2 - 1, -1, -1):
         sort_heap(data, n, swaps, i)
 
     return swaps
@@ -28,9 +32,6 @@ def build_heap(data):
 
 def main():
     
-    # TODO : add input and corresponding checks
-    # add another input for I or F 
-    # first two tests are from keyboard, third test is from a file
     fileType = input()
 
     if "F" in fileType:
@@ -58,10 +59,6 @@ def main():
     # calls function to assess the data 
     # and give back all swaps
     swaps = build_heap(data)
-
-    # TODO: output how many swaps were made, 
-    # this number should be less than 4n (less than 4*len(data))
-
 
     # output all swaps
     print(len(swaps))

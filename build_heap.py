@@ -1,10 +1,27 @@
 # python3
+def sort_heap(data, n, swaps, i):
+    sm = i
+    l = 2 * i
+    r = 2 * i + 1
+
+    if l < n and data[l] < data[sm]:
+        sm = l
+        
+    if r < n and data[r] < data[sm]:
+        sm = r
+
+    if sm != i:
+        swaps.append((i, sm))
+        sort_heap(data, n, swaps, sm)
+
+
 
 def build_heap(data):
     swaps = []
-    # TODO: Creat heap and heap sort
-    # try to achieve  O(n) and not O(n2)
+    n = len(data)
 
+    for i in range(int(n / 2), -1, -1):
+        sort_heap(data, n, swaps, i)
 
     return swaps
 

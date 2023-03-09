@@ -20,7 +20,7 @@ def build_heap(data):
     swaps = []
     n = len(data)
 
-    for i in range(int(n / 2), -1, -1):
+    for i in range(int(n / 2) - 1, -1, -1):
         sort_heap(data, n, swaps, i)
 
     return swaps

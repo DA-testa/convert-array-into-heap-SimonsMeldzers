@@ -40,8 +40,8 @@ def main():
         if "a"  in fileName:
             return
         
-        if "test/" not in fileName:
-            fileName = 'test/' + fileName
+        if "tests/" not in fileName:
+            fileName = 'tests/' + fileName
         
         with open(fileName) as f:
             n = int(f.readline().strip())

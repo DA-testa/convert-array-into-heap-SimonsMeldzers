@@ -1,8 +1,8 @@
 # python3
 def sort_heap(data, n, swaps, i):
     sm = i
-    l = 2 * i
-    r = 2 * i + 1
+    l = 2 * i + 1
+    r = 2 * i + 2
 
     if l < n and data[l] < data[sm]:
         sm = l
